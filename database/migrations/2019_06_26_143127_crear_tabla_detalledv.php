@@ -18,11 +18,11 @@ class CrearTablaDetalledv extends Migration
             $table->decimal('Precio')->nullable();
             $table->smallInteger('Cantidad')->nullable();
 
-            $table->unsignedInteger('DocumentoVentaId');
-            $table->foreign('DocumentoVentaId','fk_detalleDV_DocumentoVenta')->references('id')->on('documentoventa')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('documentoVentaId');
+            $table->foreign('documentoVentaId','fk_detalleDV_documentoVenta')->references('id')->on('documentoVenta')->onDelete('restrict')->onUpdate('restrict');
             
-            $table->unsignedInteger('ProductoProcesoId');
-            $table->foreign('ProductoProcesoId','fk_detalleDV_productoProceso')->references('id')->on('productoproceso')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('productoProcesoId');
+            $table->foreign('productoProcesoId','fk_detalleDV_productoProceso')->references('id')->on('productoProceso')->onDelete('restrict')->onUpdate('restrict');
             
             $table->timestamps();
         });

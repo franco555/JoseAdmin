@@ -21,11 +21,11 @@ class CrearTablaDocumentoventa extends Migration
             $table->dateTime('Fecha');
             $table->boolean('IsPayout');
 
-            $table->unsignedInteger('ClienteId');
-            $table->foreign('ClienteId','fk_DocumentoVenta_Cliente')->references('id')->on('Cliente')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('clienteId');
+            $table->foreign('clienteId','fk_DocumentoVenta_cliente')->references('id')->on('cliente')->onDelete('restrict')->onUpdate('restrict');
             
-            $table->unsignedInteger('TipoDocumentoId');
-            $table->foreign('TipoDocumentoId','fk_DocumentoEntrada_tipodocummento')->references('id')->on('tipodocumento')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('tipoDocumentoId');
+            $table->foreign('tipoDocumentoId','fk_DocumentoEntrada_tipoDocummento')->references('id')->on('tipoDocumento')->onDelete('restrict')->onUpdate('restrict');
             
             $table->timestamps();
         });

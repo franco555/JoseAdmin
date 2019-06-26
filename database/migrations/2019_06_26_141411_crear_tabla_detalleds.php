@@ -18,11 +18,11 @@ class CrearTablaDetalleds extends Migration
             $table->decimal('Precio')->nullable();
             $table->smallInteger('Cantidad')->nullable();
 
-            $table->unsignedInteger('DocumentoSalidaId');
-            $table->foreign('DocumentoSalidaId','fk_detalleDS_DocumentoSalida')->references('id')->on('documentosalida')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('documentoSalidaId');
+            $table->foreign('documentoSalidaId','fk_detalleDS_DocumentoSalida')->references('id')->on('documentoSalida')->onDelete('restrict')->onUpdate('restrict');
             
             $table->unsignedInteger('ProductoProcesoId');
-            $table->foreign('ProductoProcesoId','fk_detalleDS_productoProceso')->references('id')->on('productoproceso')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('productoProcesoId','fk_detalleDS_productoProceso')->references('id')->on('productoProceso')->onDelete('restrict')->onUpdate('restrict');
             
             $table->timestamps();
         });

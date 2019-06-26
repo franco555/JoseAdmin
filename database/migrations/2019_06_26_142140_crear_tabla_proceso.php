@@ -13,7 +13,7 @@ class CrearTablaProceso extends Migration
      */
     public function up()
     {
-        Schema::create('Proceso', function (Blueprint $table) {
+        Schema::create('proceso', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Nombre',50);
             $table->boolean('IsActive');
@@ -28,6 +28,6 @@ class CrearTablaProceso extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Proceso');
+        Schema::dropIfExists('proceso');
     }
 }

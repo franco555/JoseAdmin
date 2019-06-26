@@ -13,16 +13,16 @@ class CrearTablaProductoproceso extends Migration
      */
     public function up()
     {
-        Schema::create('ProductoProceso', function (Blueprint $table) {
+        Schema::create('productoProceso', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->smallInteger('Stock')->nullable();
             $table->decimal('PrecioUnitario')->nullable();
 
-            $table->unsignedInteger('ProcesoId');
-            $table->foreign('ProductoId','fk_productoProceso_Proceso')->references('id')->on('proceso')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('procesoId');
+            $table->foreign('procesoId','fk_productoProceso_proceso')->references('id')->on('proceso')->onDelete('restrict')->onUpdate('restrict');
             
             $table->unsignedInteger('ProductoId');
-            $table->foreign('ProductoId','fk_productoProceso_producto')->references('id')->on('producto')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('productoId','fk_productoProceso_producto')->references('id')->on('producto')->onDelete('restrict')->onUpdate('restrict');
             
 
             $table->timestamps();
@@ -36,6 +36,6 @@ class CrearTablaProductoproceso extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ProductoProceso');
+        Schema::dropIfExists('productoProceso');
     }
 }

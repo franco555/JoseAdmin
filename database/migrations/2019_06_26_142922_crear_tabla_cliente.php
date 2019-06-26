@@ -13,7 +13,7 @@ class CrearTablaCliente extends Migration
      */
     public function up()
     {
-        Schema::create('Cliente', function (Blueprint $table) {
+        Schema::create('cliente', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Nombre',100);
             $table->string('Apellido',100)->nullable();
