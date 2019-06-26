@@ -14,7 +14,7 @@ class CrearTablaCliente extends Migration
     public function up()
     {
         Schema::create('cliente', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('Nombre',100);
             $table->string('Apellido',100)->nullable();
             $table->string('DNI',50)->nullable();
@@ -22,7 +22,6 @@ class CrearTablaCliente extends Migration
             $table->string('Telefono',50)->nullable();
             $table->string('Email',100)->nullable();
             $table->string('Foto',200)->nullable();
-            $table->timestamps();
         });
     }
 
@@ -33,6 +32,6 @@ class CrearTablaCliente extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Cliente');
+        Schema::dropIfExists('cliente');
     }
 }

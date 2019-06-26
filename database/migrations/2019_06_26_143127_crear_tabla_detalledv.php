@@ -13,16 +13,16 @@ class CrearTablaDetalledv extends Migration
      */
     public function up()
     {
-        Schema::create('detalleDV', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->decimal('Precio')->nullable();
-            $table->smallInteger('Cantidad')->nullable();
+        Schema::create('detalledv', function (Blueprint $table) {
+            $table->increments('id');
+            $table->decimal('Precio', 8, 2)->nullable();
+            $table->smallInteger('Cantidad')->default(0);
 
-            $table->unsignedInteger('documentoVenta_id');
-            $table->foreign('documentoVenta_id','fk_detalleDV_documentoVenta')->references('id')->on('documentoVenta')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('documentoventa_id');
+            $table->unsignedInteger('productoproceso_id');
             
-            $table->unsignedInteger('productoProceso_id');
-            $table->foreign('productoProceso_id','fk_detalleDV_productoProceso')->references('id')->on('productoProceso')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('documentoventa_id')->references('id')->on('documentoventa');
+            $table->foreign('productoproceso_id')->references('id')->on('productoproceso');
             
             $table->timestamps();
         });
@@ -35,6 +35,6 @@ class CrearTablaDetalledv extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalleDV');
+        Schema::dropIfExists('detalledv');
     }
 }

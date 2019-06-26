@@ -13,21 +13,19 @@ class CrearTablaDocumentosalida extends Migration
      */
     public function up()
     {
-        Schema::create('documentoSalida', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('documentosalida', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('Numero');
-            $table->decimal('PrecioTotal')->nullable();
+            $table->decimal('PrecioTotal', 8, 2)->nullable();
             $table->double('IVA', 8, 2)->nullable();
             $table->dateTime('Fecha');
             $table->boolean('IsPayout');
 
-            $table->unsignedInteger('usuario_TipoDeTrabajo_id');
-            $table->foreign('usuario_TipoDeTrabajo_id','fk_DocumentoEntrada_usuarioTipoDeTrabajo')->references('id')->on('usuario_TipoDeTrabajo')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('usuariotipodetrabajo_id');
+            $table->unsignedInteger('tipodocumento_id');
             
-            $table->unsignedInteger('tipoDocumento_id');
-            $table->foreign('tipoDocumento_id','fk_DocumentoEntrada_tipoDocummento')->references('id')->on('tipoDocumento')->onDelete('restrict')->onUpdate('restrict');
-            
-            $table->timestamps();
+            $table->foreign('usuariotipodetrabajo_id')->references('id')->on('usuariotipodetrabajo');
+            $table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
         });
     }
 
@@ -38,6 +36,6 @@ class CrearTablaDocumentosalida extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documentoSalida');
+        Schema::dropIfExists('documentosalida');
     }
 }

@@ -14,13 +14,12 @@ class CrearTablaCompania extends Migration
     public function up()
     {
         Schema::create('compania', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('Nombre',100);
             $table->string('CUIL',50)->nullable();
             $table->string('Direccion',200)->nullable();
             $table->string('Telefono',50)->nullable();
             $table->string('Logo',20)->nullable();
-            $table->timestamps();
         });
     }
 

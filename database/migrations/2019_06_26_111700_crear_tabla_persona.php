@@ -14,7 +14,7 @@ class CrearTablaPersona extends Migration
     public function up()
     {
         Schema::create('persona', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('Nombre',100);
             $table->string('Apellido',100)->nullable();
             $table->string('DNI',50)->nullable();
@@ -23,7 +23,6 @@ class CrearTablaPersona extends Migration
             $table->string('Email',100)->nullable();
             $table->string('Foto',200)->nullable();
             $table->dateTime('FechaInicio');
-            $table->timestamps();
         });
     }
 

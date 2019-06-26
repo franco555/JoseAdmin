@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaRolUsuario extends Migration
+class CrearTablaRolusuario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CrearTablaRolUsuario extends Migration
      */
     public function up()
     {
-        Schema::create('rol_usuario', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            
+        Schema::create('rolusuario', function (Blueprint $table) {
+            $table->increments('id');
+
             $table->unsignedInteger('rol_id');
-            $table->foreign('rol_id')->references('id')->on('rol')->onDelete('restrict');
-            
             $table->unsignedInteger('usuario_id');
-            $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('restrict');
-            $table->timestamps();
+            
+            $table->foreign('rol_id')->references('id')->on('rol');
+            $table->foreign('usuario_id')->references('id')->on('usuario');
+            
         });
     }
 
@@ -32,6 +32,6 @@ class CrearTablaRolUsuario extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rol_usuario');
+        Schema::dropIfExists('rolusuario');
     }
 }

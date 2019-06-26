@@ -13,21 +13,19 @@ class CrearTablaDocumentoventa extends Migration
      */
     public function up()
     {
-        Schema::create('documentoVenta', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('documentoventa', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('Numero');
-            $table->decimal('PrecioTotal')->nullable();
+            $table->decimal('PrecioTotal', 8, 2)->nullable();
             $table->double('IVA', 8, 2)->nullable();
             $table->dateTime('Fecha');
             $table->boolean('IsPayout');
 
             $table->unsignedInteger('cliente_id');
-            $table->foreign('cliente_id','fk_DocumentoVenta_cliente')->references('id')->on('cliente')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('tipodocumento_id');
             
-            $table->unsignedInteger('tipoDocumento_id');
-            $table->foreign('tipoDocumento_id','fk_DocumentoEntrada_tipoDocummento')->references('id')->on('tipoDocumento')->onDelete('restrict')->onUpdate('restrict');
-            
-            $table->timestamps();
+            $table->foreign('cliente_id')->references('id')->on('cliente');
+            $table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
         });
     }
 
@@ -38,6 +36,6 @@ class CrearTablaDocumentoventa extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documentoVenta');
+        Schema::dropIfExists('documentoventa');
     }
 }

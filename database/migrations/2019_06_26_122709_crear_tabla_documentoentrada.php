@@ -13,21 +13,20 @@ class CrearTablaDocumentoentrada extends Migration
      */
     public function up()
     {
-        Schema::create('documentoEntrada', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('documentoentrada', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('Numero');
-            $table->decimal('PrecioTotal')->nullable();
+            $table->decimal('PrecioTotal', 8, 2)->nullable();
             $table->double('IVA', 8, 2)->nullable();
             $table->dateTime('Fecha');
             $table->boolean('IsPayout');
 
-            $table->unsignedInteger('usuario_TipoTrabajo_id');
-            $table->foreign('usuario_TipoTrabajo_id','fk_DocumentoEntrada_usuarioTipoDeTrabajo')->references('id')->on('usuario_TipoDeTrabajo')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('usuariotipotrabajo_id');
+            $table->unsignedInteger('tipodocumento_id');
             
-            $table->unsignedInteger('tipoDocumento_id');
-            $table->foreign('tipoDocumento_id','fk_DocumentoEntrada_tipoDocummento')->references('id')->on('tipoDocumento')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('usuariotipotrabajo_id')->references('id')->on('usuariotipodetrabajo');
+            $table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
             
-            $table->timestamps();
         });
     }
 
@@ -38,6 +37,6 @@ class CrearTablaDocumentoentrada extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documentoEntrada');
+        Schema::dropIfExists('documentoentrada');
     }
 }

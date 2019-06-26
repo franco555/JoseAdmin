@@ -14,11 +14,10 @@ class CrearTablaProducto extends Migration
     public function up()
     {
         Schema::create('producto', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('Codigo',50);
             $table->string('Nombre',50);
             $table->boolean('IsActive');
-            $table->timestamps();
         });
     }
 

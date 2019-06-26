@@ -13,11 +13,10 @@ class CrearTablaTipodetrabajo extends Migration
      */
     public function up()
     {
-        Schema::create('tipoDeTrabajo', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('tipodetrabajo', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('Nombre',50);
             $table->boolean('IsActive');
-            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ class CrearTablaTipodetrabajo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipoDeTrabajo');
+        Schema::dropIfExists('tipodetrabajo');
     }
 }

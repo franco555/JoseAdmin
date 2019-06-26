@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaDetalleds extends Migration
+class CrearTablaDetallede extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CrearTablaDetalleds extends Migration
      */
     public function up()
     {
-        Schema::create('detalleds', function (Blueprint $table) {
+        Schema::create('detallede', function (Blueprint $table) {
             $table->increments('id');
             $table->decimal('Precio', 8, 2)->nullable();
             $table->smallInteger('Cantidad')->default(0);
 
-            $table->unsignedInteger('documentosalida_id');
+            $table->unsignedInteger('documentoentrada_id');
             $table->unsignedInteger('productoproceso_id');
             
-            $table->foreign('documentosalida_id')->references('id')->on('documentosalida');
+            $table->foreign('documentoentrada_id')->references('id')->on('documentoentrada');
             $table->foreign('productoproceso_id')->references('id')->on('productoproceso');
-            
-            $table->timestamps();
+            //$table->foreign('documentoentrada_id')->references('id')->on('documentoentrada')->onDelete('restrict');
+            //$table->foreign('productoproceso_id')->references('id')->on('productoproceso')->onDelete('restrict');
         });
     }
 
@@ -35,6 +35,6 @@ class CrearTablaDetalleds extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalleds');
+        Schema::dropIfExists('detallede');
     }
 }

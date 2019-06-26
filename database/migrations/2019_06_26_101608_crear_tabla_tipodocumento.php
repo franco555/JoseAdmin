@@ -13,11 +13,10 @@ class CrearTablaTipodocumento extends Migration
      */
     public function up()
     {
-        Schema::create('tipoDocumento', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('tipodocumento', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('Nombre',50);
             $table->boolean('IsActive');
-            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ class CrearTablaTipodocumento extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipoDocumento');
+        Schema::dropIfExists('tipodocumento');
     }
 }
