@@ -18,11 +18,11 @@ class CrearTablaProductoproceso extends Migration
             $table->smallInteger('Stock')->nullable();
             $table->decimal('PrecioUnitario')->nullable();
 
-            $table->unsignedInteger('procesoId');
-            $table->foreign('procesoId','fk_productoProceso_proceso')->references('id')->on('proceso')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('proceso_id');
+            $table->foreign('proceso_id','fk_productoProceso_proceso')->references('id')->on('proceso')->onDelete('restrict')->onUpdate('restrict');
             
-            $table->unsignedInteger('ProductoId');
-            $table->foreign('productoId','fk_productoProceso_producto')->references('id')->on('producto')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('producto_id');
+            $table->foreign('producto_id','fk_productoProceso_producto')->references('id')->on('producto')->onDelete('restrict')->onUpdate('restrict');
             
 
             $table->timestamps();

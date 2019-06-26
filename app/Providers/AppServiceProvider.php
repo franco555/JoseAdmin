@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //composer update "en el terminal"
         Schema::defaultStringLength(191);
     }
 }

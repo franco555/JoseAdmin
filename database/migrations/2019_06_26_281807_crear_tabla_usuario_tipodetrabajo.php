@@ -16,12 +16,12 @@ class CrearTablaUsuarioTipodetrabajo extends Migration
         Schema::create('usuario_TipoDeTrabajo', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedInteger('usuarioId');
-            $table->foreign('usuarioId','fk_Usuariotipodetrabajo_usuario')->references('id')->on('usuario')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('usuario_id');
+            $table->foreign('usuario_id','fk_Usuariotipodetrabajo_usuario')->references('id')->on('usuario')->onDelete('restrict')->onUpdate('restrict');
             
             
-            $table->unsignedInteger('tipoDeTrabajoId');
-            $table->foreign('tipoDeTrabajoId','fk_Usuariotipodetrabajo_tipoDeTrabajo')->references('id')->on('tipoDeTrabajo')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('tipoDeTrabajo_id');
+            $table->foreign('tipoDeTrabajo_id','fk_Usuariotipodetrabajo_tipoDeTrabajo')->references('id')->on('tipoDeTrabajo')->onDelete('restrict')->onUpdate('restrict');
             
             $table->timestamps();
         });

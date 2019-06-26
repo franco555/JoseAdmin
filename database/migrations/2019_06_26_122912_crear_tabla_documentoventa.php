@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaDocumentoentrada extends Migration
+class CrearTablaDocumentoventa extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CrearTablaDocumentoentrada extends Migration
      */
     public function up()
     {
-        Schema::create('documentoEntrada', function (Blueprint $table) {
+        Schema::create('documentoVenta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Numero');
             $table->decimal('PrecioTotal')->nullable();
@@ -21,11 +21,11 @@ class CrearTablaDocumentoentrada extends Migration
             $table->dateTime('Fecha');
             $table->boolean('IsPayout');
 
-            $table->unsignedInteger('usuario_TipoTrabajoId');
-            $table->foreign('Usuario_TipoTrabajoId','fk_DocumentoEntrada_usuarioTipoDeTrabajo')->references('id')->on('usuario_TipoDeTrabajo')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('cliente_id');
+            $table->foreign('cliente_id','fk_DocumentoVenta_cliente')->references('id')->on('cliente')->onDelete('restrict')->onUpdate('restrict');
             
-            $table->unsignedInteger('tipoDocumentoId');
-            $table->foreign('TipoDocumentoId','fk_DocumentoEntrada_tipoDocummento')->references('id')->on('tipoDocumento')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('tipoDocumento_id');
+            $table->foreign('tipoDocumento_id','fk_DocumentoEntrada_tipoDocummento')->references('id')->on('tipoDocumento')->onDelete('restrict')->onUpdate('restrict');
             
             $table->timestamps();
         });
@@ -38,6 +38,6 @@ class CrearTablaDocumentoentrada extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documentoEntrada');
+        Schema::dropIfExists('documentoVenta');
     }
 }

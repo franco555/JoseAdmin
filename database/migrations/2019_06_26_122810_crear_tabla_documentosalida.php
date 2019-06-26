@@ -21,11 +21,11 @@ class CrearTablaDocumentosalida extends Migration
             $table->dateTime('Fecha');
             $table->boolean('IsPayout');
 
-            $table->unsignedInteger('usuario_TipoDeTrabajoId');
-            $table->foreign('usuario_TipoDeTrabajoId','fk_DocumentoEntrada_usuarioTipoDeTrabajo')->references('id')->on('usuario_TipoDeTrabajo')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('usuario_TipoDeTrabajo_id');
+            $table->foreign('usuario_TipoDeTrabajo_id','fk_DocumentoEntrada_usuarioTipoDeTrabajo')->references('id')->on('usuario_TipoDeTrabajo')->onDelete('restrict')->onUpdate('restrict');
             
-            $table->unsignedInteger('tipoDocumentoId');
-            $table->foreign('tipoDocumentoId','fk_DocumentoEntrada_tipoDocummento')->references('id')->on('tipoDocumento')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedInteger('tipoDocumento_id');
+            $table->foreign('tipoDocumento_id','fk_DocumentoEntrada_tipoDocummento')->references('id')->on('tipoDocumento')->onDelete('restrict')->onUpdate('restrict');
             
             $table->timestamps();
         });

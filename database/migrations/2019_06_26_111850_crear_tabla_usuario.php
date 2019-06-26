@@ -18,8 +18,8 @@ class CrearTablaUsuario extends Migration
             $table->string('Email',60);
             $table->string('clave',50);
 
-            $table->unsignedInteger('personaId');
-            $table->foreign('personaId','fk_usuario_persona')->references('id')->on('persona')->onDelete('restrict')->onUpdate('restrict');
+            $table->unsignedBigInteger('persona_id');
+            $table->foreign('persona_id')->references('id')->on('persona')->onDelete('restrict');            
             
             $table->timestamps();
         });
