@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaCompania extends Migration
+class CrearTablaTipodetrabajo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CrearTablaCompania extends Migration
      */
     public function up()
     {
-        Schema::create('compania', function (Blueprint $table) {
+        Schema::create('tipoDeTrabajo', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Nombre',100);
-            $table->string('CUIL',50)->nullable();
-            $table->string('Direccion',200)->nullable();
-            $table->string('Telefono',50)->nullable();
-            $table->string('Logo',20)->nullable();
+            $table->string('Nombre',50);
+            $table->boolean('IsActive');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CrearTablaCompania extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compania');
+        Schema::dropIfExists('tipoDeTrabajo');
     }
 }

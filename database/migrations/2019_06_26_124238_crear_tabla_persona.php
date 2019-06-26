@@ -16,12 +16,12 @@ class CrearTablaPersona extends Migration
         Schema::create('persona', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Nombre',100);
-            $table->string('Apellido',100);
-            $table->string('DNI',50);
-            $table->string('Direccion',200);
-            $table->string('Telefono',50);
-            $table->string('Email',100);
-            $table->string('Foto',200);
+            $table->string('Apellido',100)->nullable();
+            $table->string('DNI',50)->nullable();
+            $table->string('Direccion',200)->nullable();
+            $table->string('Telefono',50)->nullable();
+            $table->string('Email',100)->nullable();
+            $table->string('Foto',200)->nullable();
             $table->dateTime('FechaInicio');
             $table->timestamps();
         });
