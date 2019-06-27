@@ -17,7 +17,7 @@ class CrearTablaPersona extends Migration
             $table->increments('id');
             $table->string('Nombre',100);
             $table->string('Apellido',100)->nullable();
-            $table->string('DNI',50)->nullable();
+            $table->string('DNI',50)->nullable()->unique();
             $table->string('Direccion',200)->nullable();
             $table->string('Telefono',50)->nullable();
             $table->string('Email',100)->nullable();

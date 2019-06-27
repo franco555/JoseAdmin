@@ -15,7 +15,7 @@ class CrearTablaCompania extends Migration
     {
         Schema::create('compania', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Nombre',100);
+            $table->string('Nombre',100)->unique();
             $table->string('CUIL',50)->nullable();
             $table->string('Direccion',200)->nullable();
             $table->string('Telefono',50)->nullable();

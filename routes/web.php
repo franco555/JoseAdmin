@@ -11,12 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'InicioController@index')->name('inicio');
+
+Route::group(['prefix'=>'admin','namespace'=>'Admin'], function () {
+    Route::get('rol','rolController@index')->name('rol');
+    Route::get('rol/crear','rolController@crear')->name('crear');
+    Route::get('rol/editar','rolController@editar')->name('editar');
 });
 
-Auth::routes();
+//Route::get('/', function () {return view('welcome');});
 
-Route::resource('/notas', 'NotasController')->middleware('auth');
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::resource('/notas', 'NotasController')->middleware('auth');
+
+//Route::get('/home', 'HomeController@index')->name('home');
