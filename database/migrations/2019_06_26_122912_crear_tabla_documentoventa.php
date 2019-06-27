@@ -24,6 +24,14 @@ class CrearTablaDocumentoventa extends Migration
             $table->unsignedInteger('cliente_id');
             $table->unsignedInteger('tipodocumento_id');
             
+            //$table->foreign('cliente_id')->references('id')->on('cliente');
+            //$table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
+        });
+        
+        Schema::table('documentoventa', function($table)
+        {
+            //$table->foreign('cliente_id')->references('cliente')->on('id');
+            //$table->foreign('tipodocumento_id')->references('tipodocumento')->on('id');
             $table->foreign('cliente_id')->references('id')->on('cliente');
             $table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
         });

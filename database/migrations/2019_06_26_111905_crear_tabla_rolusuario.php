@@ -19,9 +19,17 @@ class CrearTablaRolusuario extends Migration
             $table->unsignedInteger('rol_id');
             $table->unsignedInteger('usuario_id');
             
+            //$table->foreign('rol_id')->references('id')->on('rol');
+            //$table->foreign('usuario_id')->references('id')->on('usuario');
+            
+        });
+
+        Schema::table('rolusuario', function($table)
+        {
+           // $table->foreign('rol_id')->references('rol')->on('id');
+            //$table->foreign('usuario_id')->references('usuario')->on('id');
             $table->foreign('rol_id')->references('id')->on('rol');
             $table->foreign('usuario_id')->references('id')->on('usuario');
-            
         });
     }
 

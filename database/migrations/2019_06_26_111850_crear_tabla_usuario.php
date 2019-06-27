@@ -19,8 +19,14 @@ class CrearTablaUsuario extends Migration
             $table->string('clave',50);
 
             $table->unsignedInteger('persona_id');
-            $table->foreign('persona_id')->references('id')->on('persona');            
+            //$table->foreign('persona_id')->references('id')->on('persona');            
         
+        });
+
+        Schema::table('usuario', function($table)
+        {
+            //$table->foreign('persona_id')->references('persona')->on('id');
+            $table->foreign('persona_id')->references('id')->on('persona'); 
         });
     }
 

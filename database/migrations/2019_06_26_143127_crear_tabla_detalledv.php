@@ -21,10 +21,18 @@ class CrearTablaDetalledv extends Migration
             $table->unsignedInteger('documentoventa_id');
             $table->unsignedInteger('productoproceso_id');
             
-            $table->foreign('documentoventa_id')->references('id')->on('documentoventa');
-            $table->foreign('productoproceso_id')->references('id')->on('productoproceso');
+            //$table->foreign('documentoventa_id')->references('id')->on('documentoventa');
+           // $table->foreign('productoproceso_id')->references('id')->on('productoproceso');
             
-            $table->timestamps();
+        });
+
+        
+        Schema::table('detalledv', function($table)
+        {
+            //$table->foreign('documentoventa_id')->references('documentoventa')->on('id');
+            //$table->foreign('productoproceso_id')->references('productoproceso')->on('id');
+            $table->foreign('documentoventa_id')->references('id')->on('documentoventa');
+           $table->foreign('productoproceso_id')->references('id')->on('productoproceso');
         });
     }
 

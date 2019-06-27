@@ -23,10 +23,18 @@ class CrearTablaDocumentoentrada extends Migration
 
             $table->unsignedInteger('usuariotipotrabajo_id');
             $table->unsignedInteger('tipodocumento_id');
-            
+
+           // $table->foreign('usuariotipotrabajo_id')->references('id')->on('usuariotipodetrabajo');
+           // $table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
+                        
+        });
+
+        Schema::table('documentoentrada', function($table)
+        {
+            //$table->foreign('usuariotipotrabajo_id')->references('usuariotipodetrabajo')->on('id');
+            //$table->foreign('tipodocumento_id')->references('tipodocumento')->on('id');
             $table->foreign('usuariotipotrabajo_id')->references('id')->on('usuariotipodetrabajo');
-            $table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
-            
+           $table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
         });
     }
 

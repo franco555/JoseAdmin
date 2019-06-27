@@ -19,9 +19,17 @@ class CrearTablaUsuarioTipodetrabajo extends Migration
             $table->unsignedInteger('usuario_id');
             $table->unsignedInteger('tipodetrabajo_id');            
             
+            //$table->foreign('usuario_id')->references('id')->on('usuario');
+            //$table->foreign('tipodetrabajo_id')->references('id')->on('tipodetrabajo');
+            
+        });
+
+        Schema::table('usuariotipodetrabajo', function($table)
+        {
+            //$table->foreign('usuario_id')->references('usuario')->on('id');
+            //$table->foreign('tipodetrabajo_id')->references('tipodetrabajo')->on('id');
             $table->foreign('usuario_id')->references('id')->on('usuario');
             $table->foreign('tipodetrabajo_id')->references('id')->on('tipodetrabajo');
-            
         });
     }
 

@@ -24,6 +24,14 @@ class CrearTablaDocumentosalida extends Migration
             $table->unsignedInteger('usuariotipodetrabajo_id');
             $table->unsignedInteger('tipodocumento_id');
             
+            //$table->foreign('usuariotipodetrabajo_id')->references('id')->on('usuariotipodetrabajo');
+            //$table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
+        });
+        
+        Schema::table('documentosalida', function($table)
+        {
+            //$table->foreign('usuariotipodetrabajo_id')->references('usuariotipodetrabajo')->on('id');
+            //$table->foreign('tipodocumento_id')->references('tipodocumento')->on('id');
             $table->foreign('usuariotipodetrabajo_id')->references('id')->on('usuariotipodetrabajo');
             $table->foreign('tipodocumento_id')->references('id')->on('tipodocumento');
         });

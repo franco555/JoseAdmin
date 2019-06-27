@@ -21,10 +21,17 @@ class CrearTablaDetalleds extends Migration
             $table->unsignedInteger('documentosalida_id');
             $table->unsignedInteger('productoproceso_id');
             
-            $table->foreign('documentosalida_id')->references('id')->on('documentosalida');
-            $table->foreign('productoproceso_id')->references('id')->on('productoproceso');
+            //$table->foreign('documentosalida_id')->references('id')->on('documentosalida');
+            //$table->foreign('productoproceso_id')->references('id')->on('productoproceso');
             
-            $table->timestamps();
+        });
+
+        Schema::table('detalleds', function($table)
+        {
+            //$table->foreign('documentosalida_id')->references('documentosalida')->on('id');
+            //$table->foreign('productoproceso_id')->references('productoproceso')->on('id');
+             $table->foreign('documentosalida_id')->references('id')->on('documentosalida');
+            $table->foreign('productoproceso_id')->references('id')->on('productoproceso');
         });
     }
 

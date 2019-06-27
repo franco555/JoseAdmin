@@ -21,9 +21,17 @@ class CrearTablaProductoproceso extends Migration
             $table->unsignedInteger('proceso_id');
             $table->unsignedInteger('producto_id');
             
-            $table->foreign('proceso_id')->references('id')->on('proceso');
-            $table->foreign('producto_id')->references('id')->on('producto');
+            //$table->foreign('proceso_id')->references('id')->on('proceso');
+            //$table->foreign('producto_id')->references('id')->on('producto');
 
+        });
+
+        Schema::table('productoproceso', function($table)
+        {
+            //$table->foreign('proceso_id')->references('proceso')->on('id');
+            //$table->foreign('producto_id')->references('producto')->on('id');
+             $table->foreign('proceso_id')->references('id')->on('proceso');
+            $table->foreign('producto_id')->references('id')->on('producto');
         });
     }
 
