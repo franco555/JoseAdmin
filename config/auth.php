@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => SistAlmacen\User::class,
+            'model' => SistAlmacen\models\Seguridad\Usuario::class,
         ],
 
         // 'users' => [

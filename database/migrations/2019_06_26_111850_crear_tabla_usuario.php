@@ -15,18 +15,17 @@ class CrearTablaUsuario extends Migration
     {
         Schema::create('usuario', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Email',60);
-            $table->string('clave',50);
+            $table->string('Email', 60);
+            $table->string('clave', 100);
 
             $table->unsignedInteger('persona_id');
             //$table->foreign('persona_id')->references('id')->on('persona');            
-        
+
         });
 
-        Schema::table('usuario', function($table)
-        {
+        Schema::table('usuario', function ($table) {
             //$table->foreign('persona_id')->references('persona')->on('id');
-            $table->foreign('persona_id')->references('id')->on('persona'); 
+            $table->foreign('persona_id')->references('id')->on('persona');
         });
     }
 

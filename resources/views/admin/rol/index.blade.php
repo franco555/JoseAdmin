@@ -4,13 +4,13 @@
     Roles
 @endsection
 @section('NombrePagina')
-    Roles
+    Crear Roles
 @endsection
 @section('DescripcionPagina')
-    Administrar los roles que los usuarios pueden tener
+    Creando Rol Nuevo
 @endsection
 @section('btnNuevo')
-    {{route("rol")}}
+    {{route("crear_rol")}}
 @endsection
 
 @section('contenido')
@@ -21,22 +21,25 @@
                     <h3 class="box-title">Roles</h3>
                 </div>
                 <div class="box-body">
-                        <table class="table table-condensed">
-                            <tr>
-                                <th>Nombre</th>
-                                <th style="width: 40px">Acci&oacute;n</th>
-                            </tr>
-                            @foreach ($rols as $item)
-                                <tr>
-                                    <td>{{$item->Nombre}}</td>
-                                    <td>
-                                            {{$item->IsActive}}
-                                        <a class="btn btn-sm btn-warning">editar</a>
-                                    </td>
+                        <table class="table table-condensed table-striped">
+                            <thead>
+                                <tr >
+                                    <th>Nombre</th>
+                                    <th style="width: 40px">Acci&oacute;n</th>
                                 </tr>
-                            @endforeach
-                            
-                                
+                            </thead>
+                            <tbody>
+                                @foreach ($rols as $item)
+                                    <tr>
+                                        <td>{{$item->Nombre}}</td>
+                                        <td>
+                                            @if($item->IsActive)
+                                                <a class="btn btn-sm btn-warning">editar</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                 </div>
             </div>

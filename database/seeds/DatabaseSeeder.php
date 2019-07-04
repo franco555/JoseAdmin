@@ -12,17 +12,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        $this->truncateTablas(['rol','compania','persona']);
+        $this->truncateTablas(['rol', 'compania', 'persona', 'usuario']);
 
         $this->call(TablaRolSeeder::class);
         $this->call(TablaCompaniaSeeder::class);
         $this->call(TablaPersonaSeeder::class);
+        $this->call(UsuarioAdministradorSeeder::class);
     }
 
-    protected function truncateTablas(array $tablas){
+    protected function truncateTablas(array $tablas)
+    {
 
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-        foreach($tablas as $tabla){
+        foreach ($tablas as $tabla) {
             DB::table($tabla)->truncate();
         }
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');

@@ -44,14 +44,13 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-              <h1>
-                @yield('NombrePagina')
-                <small>@yield('DescripcionPagina')</small>
-              </h1>
-              <ol class="breadcrumb">
-                <li><a href="@yield('btnNuevo','#')" class="btn btn-sm btn-primary text-white">
-                  <i class="fa fa-file"></i> Nuevo</a></li>
-              </ol>
+                <h1>@yield('NombrePagina')
+                  <small>@yield('DescripcionPagina')</small>
+                </h1>
+                <ol class="breadcrumb">
+                   <li><a href="@yield('btn-nuevo')" class="btn btn-sm btn-primary text-white" style="color:#fff;">
+                    <i class="fa fa-file"></i> Nuevo</a></li>
+                </ol>
             </section>
 
             <section class="content">
